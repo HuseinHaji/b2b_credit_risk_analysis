@@ -45,3 +45,7 @@ ENV/
 .DS_Store
 .env
 .env.local
+
+# build artifacts
+.coverage
+models/
