@@ -36,7 +36,10 @@ def infer_column_type(df, col):
     # Check column name patterns for hints
     col_lower = col.lower()
     
-    if 'key' in col_lower or col_lower == 'rating_bucket':
+    if col_lower == 'rating_bucket':
+        return String(50)
+
+    if 'key' in col_lower:
         if 'payment_key' in col_lower or 'invoice_key' in col_lower or col_lower == 'exposure_snapshot_key' or col_lower == 'default_event_key' or col_lower == 'rating_history_key':
             return BigInteger()
         else:

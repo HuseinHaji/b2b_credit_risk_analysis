@@ -18,9 +18,12 @@ def run_all_views():
         for vf in view_files:
             print(f"Creating view: {vf.name}")
             sql = vf.read_text(encoding='utf-8')
-            conn.execute(text(sql))
+            try:
+                conn.execute(text(sql))
+            except Exception as e:
+                print(f"⚠ Skipping view {vf.name} due to: {e}")
     engine.dispose()
-    print('All views created.')
+    print('View creation step complete. Some views may have been skipped.')
 
 
 if __name__ == '__main__':
