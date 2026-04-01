@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 from b2b_credit_risk_analysis.data_generation.customers import generate_customer_dimension
 from b2b_credit_risk_analysis.data_generation.customer_month import generate_customer_month_panel
@@ -45,7 +46,12 @@ def prepare_public_exports(
     }
 
 
-def save_outputs(outputs: dict, output_dir: str = "b2b_credit_risk_analysis/data/processed/phase1"):
+def save_outputs(outputs: dict, output_dir: str = None):
+    if output_dir is None:
+        project_root = Path(__file__).parent.parent
+        output_dir = project_root / "data" / "processed" / "phase1"
+    else:
+        output_dir = Path(output_dir)
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
