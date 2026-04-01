@@ -45,7 +45,7 @@ def infer_column_type(df, col):
         else:
             return Integer()
     
-    if col_lower in ['is_month_start', 'is_month_end', 'is_quarter_end', 'is_year_end', 'eur_currency_flag', 'cyclical_flag', 'insured_flag', 'partial_payment_flag', 'recovered_after_default_flag', 'downgrade_flag']:
+    if col_lower in ['is_month_start', 'is_month_end', 'is_quarter_end', 'is_year_end']:
         return Boolean()
     
     if col_lower in ['full_date', 'onboarding_date_key']:
