@@ -27,8 +27,11 @@ jobs:
           pip install -r requirements.txt
           pip install nbformat
 
-      - name: Run pytest
-        run: pytest -q
+      - name: Verify Node version
+        run: node --version
+
+      - name: Run pytest (no coverage plugin)
+        run: pytest -q --no-cov
 
       - name: Verify notebook syntax
         run: |
