@@ -33,6 +33,7 @@ src/b2b_credit_risk_analysis/warehouse/build_facts.py
 src/b2b_credit_risk_analysis/warehouse/export_phase2_tables.py
 src/b2b_credit_risk_analysis/warehouse/run_phase2.py
 tests/test_data_generation.py
+tests/test_feature_model_pipeline.py
 tests/test_features.py
 tests/test_modeling.py
 tests/test_phase1_generation.py

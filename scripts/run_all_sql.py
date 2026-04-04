@@ -24,6 +24,10 @@ if __name__ == "__main__":
         "quality_checks": "sql/quality_checks/*.sql",
     }
 
+    # ensure both schemas exist (ddl creates credit_risk_dw, staging uses credit_risk)
+    with engine.begin() as conn:
+        conn.execute(text("CREATE SCHEMA IF NOT EXISTS credit_risk;"))
+
     # run in order
     run_sql_files(engine, glob.glob(paths["ddl"]))
     run_sql_files(engine, glob.glob(paths["staging"]))
